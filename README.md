@@ -3,21 +3,25 @@
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-5391FE)
 ![Bash](https://img.shields.io/badge/Bash-4.0%2B-4EAA25)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+![Windows Installer](https://img.shields.io/badge/Installer-Inno%20Setup-orange)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
 
-A cross-platform automation toolkit that combines **Python**, **PowerShell**, and **Bash** scripts for common system administration tasks such as file organization, backups, cleanup, log rotation, resource monitoring, and Git workflow automation.
+A cross-platform automation toolkit built with **Python**, **PowerShell**, and **Bash** to automate practical system administration tasks such as file organization, backups, cleanup, log rotation, resource monitoring, and Git workflow support.
+
+This repository now includes a **Windows interactive organizer application**, a **packaged installer**, and a **metadata watermark system** for improved usability, traceability, and professional presentation.
 
 ---
 
 ## Table of Contents
 
 - [Overview](#overview)
+- [What’s New](#whats-new)
 - [Why This Project](#why-this-project)
 - [Core Features](#core-features)
 - [Architecture](#architecture)
 - [Technologies Used](#technologies-used)
 - [Project Structure](#project-structure)
+- [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Usage Examples](#usage-examples)
 - [Screenshots](#screenshots)
@@ -25,24 +29,36 @@ A cross-platform automation toolkit that combines **Python**, **PowerShell**, an
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
-- [Notes](#notes)
 
 ---
 
 ## Overview
 
-**System Automation Scripts** is a practical toolkit designed to simplify repetitive IT and system maintenance tasks.
+**System Automation Scripts** is a practical automation toolkit designed to reduce repetitive manual work across Windows, Linux, macOS, and WSL environments.
 
-It provides ready-to-use scripts for:
+It provides scripts and tools for:
 
-- Organizing files automatically
-- Creating and managing backups
-- Cleaning temporary or unnecessary files
-- Rotating and managing logs
-- Monitoring system resources
-- Automating Git-related tasks
+- Organizing files automatically by category
+- Optionally organizing files by modification date
+- Creating and managing compressed backups
+- Cleaning temporary and unnecessary files
+- Monitoring system and network activity
+- Rotating logs and maintaining repositories
+- Supporting both technical users and non-technical users through CLI and interactive workflows
 
-The repository is structured to be clear, modular, and easy to extend.
+The project is structured as a portfolio-ready repository with modular code, reusable scripts, screenshots, documentation, and a packaged Windows installer.
+
+---
+
+## What’s New
+
+The project now includes the following improvements:
+
+- **Interactive Windows organizer application** (`python/organizer_app.py`) that asks the user which folder to organize and whether to organize files by date
+- **Installable Windows package** built with **Inno Setup** for easier installation and distribution
+- **Watermark metadata system** that creates a `.file_organizer_metadata.txt` file in organized folders to identify the software, author, timestamp, computer, and user
+- **Enhanced statistics output** saved in `organization_stats.json` with creator metadata, timestamp, and organization results
+- **Improved professional documentation** for portfolio and recruiter review
 
 ---
 
@@ -52,29 +68,31 @@ This project demonstrates:
 
 - Cross-platform scripting across **Windows, Linux, macOS, and WSL**
 - Real-world automation use cases for administration and productivity
-- Reusable script design with shared configuration support
-- Cleaner organization for maintainability and scalability
-- A portfolio-ready repository structure for GitHub
+- A combination of **command-line tools** and a **guided interactive application**
+- Better usability through installer-based distribution for Windows users
+- Practical software packaging and deployment experience
+- Stronger documentation and portfolio presentation for GitHub
 
 ---
 
 ## Core Features
 
-### Python Scripts
+### Python Tools
 
-| Script | Description |
-|--------|-------------|
-| `file_organizer.py` | Automatically organizes files by type, date, or custom rules |
-| `system_cleaner.py` | Removes temporary files and helps recover disk space |
-| `backup_automation.py` | Handles backup workflows with configurable behavior |
+| Component | Description |
+|-----------|-------------|
+| `file_organizer.py` | Command-line file organizer for category-based and date-based organization |
+| `organizer_app.py` | Interactive Windows application that prompts for target folder and date-based organization |
+| Metadata watermark | Creates `.file_organizer_metadata.txt` in organized folders for traceability |
+| `organization_stats.json` | Saves post-run statistics and metadata about the organization process |
 
 ### PowerShell Scripts
 
 | Script | Description |
 |--------|-------------|
-| `backup_script.ps1` | Creates compressed backups with configurable destinations |
-| `system_cleanup.ps1` | Cleans temporary files and improves Windows maintenance workflows |
-| `network_monitor.ps1` | Monitors connectivity and supports basic network diagnostics |
+| `backup_script.ps1` | Creates compressed backups with configurable destinations and retention behavior |
+| `system_cleanup.ps1` | Cleans temporary files and supports Windows maintenance workflows |
+| `network_monitor.ps1` | Monitors connectivity and supports network diagnostics |
 
 ### Bash Scripts
 
@@ -84,6 +102,14 @@ This project demonstrates:
 | `log_rotator.sh` | Rotates logs with retention-friendly behavior |
 | `resource_monitor.sh` | Tracks system resource usage such as CPU, memory, and disk |
 
+### Distribution and Packaging
+
+| Package | Description |
+|---------|-------------|
+| `FileOrganizer_Setup.exe` | Windows installer package for easier deployment |
+| `FileOrganizer_v1.0.zip` | Portable packaged distribution |
+| Inno Setup script | Installer definition for packaging the application |
+
 ---
 
 ## Architecture
@@ -92,10 +118,10 @@ This project demonstrates:
 flowchart TD
     A[System Automation Scripts]
 
-    B[User Interface Layer<br/>CLI Commands<br/>Config Files<br/>PowerShell<br/>Environment Variables]
+    B[User Interaction Layer<br/>CLI Commands<br/>Interactive Windows App<br/>Config Files<br/>Environment Variables]
     A --> B
 
-    C[Python Scripts<br/>file_organizer.py<br/>system_cleaner.py<br/>backup_automation.py]
+    C[Python Tools<br/>file_organizer.py<br/>organizer_app.py]
     D[PowerShell Scripts<br/>backup_script.ps1<br/>system_cleanup.ps1<br/>network_monitor.ps1]
     E[Bash Scripts<br/>git_automation.sh<br/>log_rotator.sh<br/>resource_monitor.sh]
 
@@ -103,16 +129,16 @@ flowchart TD
     B --> D
     B --> E
 
-    C <--> D
-    D <--> E
-
-    F[Shared Components<br/>Configuration JSON<br/>Logging System<br/>Error Handling<br/>Notifications<br/>Task Scheduling]
+    F[Shared Components<br/>Configuration JSON<br/>Logging<br/>Statistics JSON<br/>Metadata Watermark<br/>Error Handling]
 
     C --> F
     D --> F
     E --> F
 
-    G[Operating Systems<br/>Windows 10/11<br/>Linux Ubuntu/CentOS<br/>macOS<br/>WSL]
+    H[Distribution Layer<br/>FileOrganizer_Setup.exe<br/>Portable ZIP Package<br/>Inno Setup Packaging]
+    C --> H
+
+    G[Operating Systems<br/>Windows 10/11<br/>Linux<br/>macOS<br/>WSL]
     F --> G
 ```
 
@@ -122,13 +148,13 @@ flowchart TD
 
 | Technology | Purpose |
 |------------|---------|
-| Python 3.8+ | Core automation logic and cross-platform scripting |
+| Python 3.8+ | Core automation logic and interactive application support |
 | PowerShell 5.1+ | Windows administration and task automation |
 | Bash 4.0+ | Linux/macOS shell automation |
-| JSON / YAML | Centralized configuration management |
-| Logging | Consistent output and traceability across scripts |
-| Schedule / Task Scheduler / Cron | Task scheduling support |
+| JSON | Statistics and configuration data |
+| Inno Setup | Windows installer creation |
 | Git | Version control and workflow automation |
+| Logging / Metadata Files | Traceability and execution records |
 
 ---
 
@@ -139,30 +165,25 @@ system-automation-scripts/
 │
 ├── python/
 │   ├── __init__.py
-│   ├── file_organizer.py          # File organization automation
-│   ├── system_cleaner.py          # Temporary files cleanup
-│   ├── backup_automation.py       # Backup management
-│   └── requirements.txt           # Python dependencies
+│   ├── file_organizer.py                 # CLI file organization tool
+│   ├── organizer_app.py                  # Interactive Windows organizer app
+│   └── requirements.txt                  # Python dependencies
 │
 ├── powershell/
-│   ├── backup_script.ps1          # Compressed backups
-│   ├── system_cleanup.ps1         # Windows cleanup tasks
-│   ├── network_monitor.ps1        # Network monitoring
-│   └── README.md                  # PowerShell-specific documentation
+│   ├── backup_script.ps1                 # Compressed backups
+│   ├── system_cleanup.ps1                # Windows cleanup tasks
+│   ├── network_monitor.ps1               # Network monitoring
+│   └── README.md                         # PowerShell documentation
 │
 ├── bash/
-│   ├── git_automation.sh          # Git workflow automation
-│   ├── log_rotator.sh             # Log rotation
-│   ├── resource_monitor.sh        # System resource monitoring
-│   └── README.md                  # Bash-specific documentation
+│   ├── git_automation.sh                 # Git workflow automation
+│   ├── log_rotator.sh                    # Log rotation
+│   ├── resource_monitor.sh               # System resource monitoring
+│   └── README.md                         # Bash documentation
 │
 ├── config/
-│   ├── settings.json              # Global configuration
-│   └── backup_config.json         # Backup-specific settings
-│
-├── tests/
-│   ├── test_python.py             # Python unit tests
-│   └── test_powershell.ps1        # PowerShell tests
+│   ├── settings.json                     # Global configuration
+│   └── backup_config.json                # Backup-specific settings
 │
 ├── docs/
 │   ├── screenshots/
@@ -172,49 +193,89 @@ system-automation-scripts/
 │   │   ├── screenshot_4_vscode_structure.png
 │   │   ├── screenshot_5_organized_folders.png
 │   │   ├── screenshot_6_json_stats.png
-│   │   └── screenshot_7_backup_log.png
-│   └── examples/                  # Usage examples
+│   │   ├── screenshot_7_backup_log.png
+│   │   ├── screenshot_8_interactive_app_prompt.png
+│   │   ├── screenshot_9_interactive_app_summary.png
+│   │   ├── screenshot_10_metadata_watermark.png
+│   │   └── screenshot_11_windows_installer.png
+│   └── examples/
 │
-├── .gitignore                     # Git ignore rules
-├── LICENSE                        # MIT License
-├── setup.ps1                      # Windows setup script
-└── README.md                      # Main documentation
+├── distribution/
+│   └── windows/
+│       ├── FileOrganizer_Setup.exe       # Windows installer package
+│       └── FileOrganizer_v1.0.zip        # Portable packaged version
+│
+├── installer/
+│   └── installer.iss                     # Inno Setup installer script
+│
+├── tests/
+│   ├── test_python.py                    # Python unit tests
+│   └── test_powershell.ps1               # PowerShell tests
+│
+├── .gitignore                            # Git ignore rules
+├── LICENSE                               # License file
+├── setup.ps1                             # Windows setup script
+└── README.md                             # Main documentation
 ```
+
+---
+
+## Installation
+
+### Option 1: Run the Python Application
+
+```bash
+pip install -r python/requirements.txt
+python python/organizer_app.py
+```
+
+### Option 2: Use the Windows Installer
+
+For Windows users, the project also includes a packaged installer:
+
+- `distribution/windows/FileOrganizer_Setup.exe`
+
+This installer was created with **Inno Setup** and is intended to make the application easier to install and distribute.
+
+### Option 3: Use the Portable ZIP Package
+
+For a portable version, see:
+
+- `distribution/windows/FileOrganizer_v1.0.zip`
 
 ---
 
 ## Quick Start
 
-### Prerequisites
-
-Install the tools that apply to your environment:
-
-- **Python 3.8+**
-- **Git**
-- **PowerShell 5.1+** (Windows)
-- **Bash** (Linux, macOS, or WSL)
-
-### Clone the Repository
+### CLI File Organizer
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/system-automation-scripts.git
-cd system-automation-scripts
+python python/file_organizer.py C:\Users\YourName\Downloads
+python python/file_organizer.py C:\Users\YourName\Downloads --by-date
 ```
 
-### Python Setup
+### Interactive Application
 
 ```bash
-pip install -r python/requirements.txt
-python python/file_organizer.py --help
+python python/organizer_app.py
 ```
 
-### PowerShell Setup
+The interactive app will:
+
+1. Ask which folder you want to organize
+2. Ask whether you want to organize by date
+3. Confirm the selected settings
+4. Organize the folder contents
+5. Save statistics to `organization_stats.json`
+6. Create metadata watermark files in destination folders
+
+### PowerShell Backup Script
 
 ```powershell
-.\powershell\backup_script.ps1 -?
+.\powershell\backup_script.ps1 -SourcePath "C:\Important" -DestinationPath "D:\Backups" -Compress
 ```
 
-### Bash Setup
+### Bash Git Automation
 
 ```bash
 chmod +x bash/git_automation.sh
@@ -225,67 +286,68 @@ chmod +x bash/git_automation.sh
 
 ## Usage Examples
 
-### File Organizer
+### Example: Interactive Windows Organizer
 
-Organize a downloads folder:
+The interactive application is especially useful for users who do not want to type command-line arguments manually.
 
-```bash
-python python/file_organizer.py C:\Users\YourName\Downloads
-```
+Typical workflow:
 
-Organize files by date:
+- Launch the organizer app
+- Enter a target folder path
+- Choose whether to group files by date
+- Confirm the action
+- Review the summary and generated metadata/statistics files
 
-```bash
-python python/file_organizer.py C:\TestFolder --by-date
-```
+### Example: Metadata Watermark
 
-### Backup Script
-
-Create a compressed backup with PowerShell:
-
-```powershell
-.\powershell\backup_script.ps1 -SourcePath "C:\Important" -DestinationPath "D:\Backups" -Compress
-```
-
-### Git Automation
-
-Run the Bash Git automation script:
-
-```bash
-chmod +x bash/git_automation.sh
-./bash/git_automation.sh /path/to/repo
-```
-
-### Quick Access Commands
+After organization, destination folders may include a metadata file named:
 
 ```text
-Python:
-python python/file_organizer.py --help
-
-PowerShell:
-.\powershell\backup_script.ps1 -?
-
-Bash:
-chmod +x bash/git_automation.sh && ./bash/git_automation.sh
+.file_organizer_metadata.txt
 ```
+
+This file can store:
+
+- Software name and version
+- Author information
+- Website and contact email
+- Timestamp of organization
+- Computer name and user name
+- Copyright notice
+
+### Example: JSON Statistics Output
+
+The organizer also saves an `organization_stats.json` file containing:
+
+- creator metadata
+- timestamp
+- number of files moved
+- categories used
+- execution errors, if any
 
 ---
 
 ## Screenshots
 
-To keep the main README concise, screenshots are linked below instead of displayed inline.
+To keep the main README concise, screenshots are linked below instead of embedded.
 
-| Preview | Description |
-|--------|-------------|
-| [File Organizer](docs/screenshots/screenshot_1_file_organizer.png) | Example of the file organization script in action |
-| [Backup Script](docs/screenshots/screenshot_2_backup_script.png) | PowerShell backup execution output |
-| [Git Automation](docs/screenshots/screenshot_3_git_automation.png) | Interactive Git automation workflow |
-| [Project Structure](docs/screenshots/screenshot_4_vscode_structure.png) | Repository layout shown in VS Code / GitHub |
-| [Organized Folders Result](docs/screenshots/screenshot_5_organized_folders.png) | Resulting categorized folders after organization |
-| [JSON Statistics Output](docs/screenshots/screenshot_6_json_stats.png) | Generated JSON summary with file statistics |
-| [Backup Log Output](docs/screenshots/Untitledscreenshot_7_backup_log.png) | Backup logging and rotation output |
+| Screenshot | Description |
+|------------|-------------|
+| [File Organizer](docs/screenshots/screenshot_1_file_organizer.png) | Command-line organization workflow |
+| [Backup Script](docs/screenshots/screenshot_2_backup_script.png) | PowerShell backup execution |
+| [Git Automation](docs/screenshots/screenshot_3_git_automation.png) | Bash Git automation workflow |
+| [Project Structure](docs/screenshots/screenshot_4_vscode_structure.png) | Repository layout overview |
+| [Organized Folders](docs/screenshots/screenshot_5_organized_folders.png) | Resulting categorized folders after organization |
+| [JSON Statistics](docs/screenshots/screenshot_6_json_stats.png) | Saved `organization_stats.json` output |
+| [Backup Log](docs/screenshots/screenshot_7_backup_log.png) | Backup log output example |
+| [Interactive App Prompt](docs/screenshots/screenshot_8_interactive_app_prompt.png) | Interactive app asking for target folder |
+| [Interactive App Summary](docs/screenshots/screenshot_9_interactive_app_summary.png) | Interactive app completion summary |
+| [Metadata Watermark](docs/screenshots/screenshot_10_metadata_watermark.png) | Metadata watermark file generated in organized folders |
+| [Windows Installer](docs/screenshots/screenshot_11_windows_installer.png) | Installer package visible for Windows distribution |
 
-You can also browse the full screenshot folder here: [docs/screenshots](docs/screenshots/).
+You can also browse the full screenshot folder here:
+
+- [docs/screenshots](docs/screenshots)
 
 ---
 
@@ -293,12 +355,12 @@ You can also browse the full screenshot folder here: [docs/screenshots](docs/scr
 
 Planned improvements:
 
-- Add a simple menu-based interface for script selection
+- Add drag-and-drop support for the interactive organizer
 - Expand notification support for backup and monitoring workflows
-- Add Docker support for isolated execution
-- Improve scheduling integrations with Task Scheduler and Cron
-- Expand automated testing coverage
-- Add CI support with GitHub Actions
+- Add CI workflows for automated testing and packaging
+- Improve release packaging and GitHub Releases distribution
+- Expand test coverage for the interactive application
+- Add optional GUI packaging for broader end-user adoption
 
 ---
 
@@ -318,8 +380,11 @@ For major changes, consider opening an issue first to discuss the proposal.
 
 ## License
 
-This project is licensed under the **MIT License**.
-See the [LICENSE](LICENSE) file for details.
+This repository includes a custom license file in `LICENSE`.
+
+> Important: if you intend to keep commercial-use restrictions or additional author-control restrictions, do not label the project as standard MIT in the README or badge. Standard MIT does not include those extra restrictions.
+
+Update this section so that the license badge and the actual license text match.
 
 ---
 
@@ -327,17 +392,17 @@ See the [LICENSE](LICENSE) file for details.
 
 **Diana Araujo**
 
-- Email: `your-email@example.com`
+- Email: `dianadaraujo78@gmail.com`
+- GitHub: `https://github.com/dianadesiree`
 - LinkedIn: `https://linkedin.com/in/your-profile`
-- GitHub: `https://github.com/your-username`
 - Portfolio: `https://your-portfolio-link.com`
 
-> Replace the placeholder links above with your real contact information before publishing.
+> Replace the placeholder LinkedIn and portfolio links before publishing.
 
 ---
 
 ## Notes
 
-- This repository is ideal as a **portfolio project**, **learning project**, or **starter automation toolkit**.
-- Keep screenshots optimized and scripts documented for the best GitHub presentation.
-- If Mermaid does not render in a local Markdown viewer, GitHub web view should still display it correctly.
+- This project combines automation scripting, packaging, installer creation, and documentation into a portfolio-ready repository.
+- For the most professional presentation, consider keeping packaged binaries inside `distribution/windows/` instead of the repository root.
+- For distribution to end users, GitHub Releases is a better long-term home for `.exe` installers than the main source tree.
