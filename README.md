@@ -275,7 +275,7 @@ chmod +x bash/git_automation.sh && ./bash/git_automation.sh
 
 ### Backup Script
 
-![Backup Script](./docs/screenshots/backup-script.png)
+![Backup Script](./docs/screenshots/backupscript.png)
 
 ### Git Automation
 
