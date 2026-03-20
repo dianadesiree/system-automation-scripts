@@ -1,438 +1,341 @@
-\# System Automation Scripts 🚀
+# System Automation Scripts
 
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-5391FE)
+![Bash](https://img.shields.io/badge/Bash-4.0%2B-4EAA25)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
 
+A cross-platform automation toolkit that combines **Python**, **PowerShell**, and **Bash** scripts for common system administration tasks such as file organization, backups, cleanup, log rotation, resource monitoring, and Git workflow automation.
 
-!\[Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+---
 
-!\[PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue)
+## Table of Contents
 
-!\[Bash](https://img.shields.io/badge/Bash-5.0%2B-orange)
+- [Overview](#overview)
+- [Why This Project](#why-this-project)
+- [Core Features](#core-features)
+- [Architecture](#architecture)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Quick Start](#quick-start)
+- [Usage Examples](#usage-examples)
+- [Screenshots](#screenshots)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-!\[License](https://img.shields.io/badge/License-MIT-green)
+---
 
+## Overview
 
+**System Automation Scripts** is a practical toolkit designed to simplify repetitive IT and system maintenance tasks.
 
-A comprehensive collection of cross-platform automation scripts designed to streamline system maintenance, file organization, backup operations, and network monitoring. This project demonstrates practical automation skills essential for DevOps engineers, system administrators, and developers.
+It provides ready-to-use scripts for:
 
+- Organizing files automatically
+- Creating and managing backups
+- Cleaning temporary or unnecessary files
+- Rotating and managing logs
+- Monitoring system resources
+- Automating Git-related tasks
 
+The repository is structured to be clear, modular, and easy to extend.
 
-\## 📊 Overview
+---
 
+## Why This Project
 
+This project demonstrates:
 
-This toolkit provides ready-to-use automation solutions for everyday system administration tasks. Whether you need to organize your downloads folder, automate backups, monitor network connectivity, or clean up temporary files, these scripts have you covered. Built with best practices in error handling, logging, and configuration management.
+- Cross-platform scripting across **Windows, Linux, macOS, and WSL**
+- Real-world automation use cases for administration and productivity
+- Reusable script design with shared configuration support
+- Cleaner organization for maintainability and scalability
+- A portfolio-ready repository structure for GitHub
 
+---
 
+## Core Features
 
-\*\*Why this project?\*\* Automation is a critical skill in modern IT operations. This collection demonstrates:
+### Python Scripts
 
-\- Cross-platform scripting expertise (Windows/Linux/macOS)
+| Script | Description |
+|--------|-------------|
+| `file_organizer.py` | Automatically organizes files by type, date, or custom rules |
+| `system_cleaner.py` | Removes temporary files and helps recover disk space |
+| `backup_automation.py` | Handles backup workflows with configurable behavior |
 
-\- Real-world automation scenarios
+### PowerShell Scripts
 
-\- Enterprise-grade error handling and logging
+| Script | Description |
+|--------|-------------|
+| `backup_script.ps1` | Creates compressed backups with configurable destinations |
+| `system_cleanup.ps1` | Cleans temporary files and improves Windows maintenance workflows |
+| `network_monitor.ps1` | Monitors connectivity and supports basic network diagnostics |
 
-\- Configuration-driven design
+### Bash Scripts
 
-\- Testable and maintainable code structure
+| Script | Description |
+|--------|-------------|
+| `git_automation.sh` | Simplifies repetitive Git operations |
+| `log_rotator.sh` | Rotates logs with retention-friendly behavior |
+| `resource_monitor.sh` | Tracks system resource usage such as CPU, memory, and disk |
 
+---
 
+## Architecture
 
-\## ✨ Key Features
+```mermaid
+flowchart TD
+    A[System Automation Scripts]
 
+    B[User Interface Layer<br/>CLI Commands<br/>Config Files<br/>PowerShell<br/>Environment Variables]
+    A --> B
 
+    C[Python Scripts<br/>file_organizer.py<br/>system_cleaner.py<br/>backup_automation.py]
+    D[PowerShell Scripts<br/>backup_script.ps1<br/>system_cleanup.ps1<br/>network_monitor.ps1]
+    E[Bash Scripts<br/>git_automation.sh<br/>log_rotator.sh<br/>resource_monitor.sh]
 
-\### Python Scripts 🐍
+    B --> C
+    B --> D
+    B --> E
 
-\- \*\*File Organizer\*\*: Automatically sorts files into folders by type, date, or custom rules
+    C <--> D
+    D <--> E
 
-\- \*\*Backup Automation\*\*: Incremental backups with compression and cloud upload support
+    F[Shared Components<br/>Configuration JSON<br/>Logging System<br/>Error Handling<br/>Notifications<br/>Task Scheduling]
 
-\- \*\*Log Analyzer\*\*: Parse and analyze system logs with pattern detection
+    C --> F
+    D --> F
+    E --> F
 
+    G[Operating Systems<br/>Windows 10/11<br/>Linux Ubuntu/CentOS<br/>macOS<br/>WSL]
+    F --> G
+```
 
+---
 
-\### PowerShell Scripts 💻
-
-\- \*\*System Cleanup\*\*: Remove temporary files, clear caches, and free disk space
-
-\- \*\*Network Monitor\*\*: Continuous network connectivity testing with alerts
-
-\- \*\*Service Manager\*\*: Start/stop/restart Windows services with dependency checking
-
-
-
-\### Bash Scripts 🐧
-
-\- \*\*Git Automation\*\*: Batch git operations across multiple repositories
-
-\- \*\*Log Rotator\*\*: Smart log rotation with compression and retention policies
-
-\- \*\*Resource Monitor\*\*: CPU, memory, and disk usage tracking with alerts
-
-
-
-\## 🏗️ Architecture
-
-┌─────────────────────────────────────────────────────────────┐
-
-│ System Automation Scripts │
-
-├───────────────┬─────────────────┬───────────────────────────┤
-
-│ Python │ PowerShell │ Bash │
-
-│ Scripts │ Scripts │ Scripts │
-
-├───────────────┼─────────────────┼───────────────────────────┤
-
-│ • File Ops │ • Windows API │ • Linux Syscalls │
-
-│ • Cross- │ • Registry │ • Text Processing │
-
-│ Platform │ Management │ • Pipeline Operations │
-
-└───────────────┴─────────────────┴───────────────────────────┘
-
-│ │ │
-
-▼ ▼ ▼
-
-┌─────────────────────────────────────────────────────────────┐
-
-│ Shared Components │
-
-│ • Configuration Files (JSON/YAML) │
-
-│ • Logging System │
-
-│ • Error Handling \& Notifications │
-
-└─────────────────────────────────────────────────────────────┘
-
-
-
-\## 🛠️ Technologies Used
-
-
+## Technologies Used
 
 | Technology | Purpose |
-
 |------------|---------|
+| Python 3.8+ | Core automation logic and cross-platform scripting |
+| PowerShell 5.1+ | Windows administration and task automation |
+| Bash 4.0+ | Linux/macOS shell automation |
+| JSON / YAML | Centralized configuration management |
+| Logging | Consistent output and traceability across scripts |
+| Schedule / Task Scheduler / Cron | Task scheduling support |
+| Git | Version control and workflow automation |
 
-| Python 3.8+ | Core automation logic, cross-platform compatibility |
+---
 
-| PowerShell | Windows-specific automation, system administration |
+## Project Structure
 
-| Bash | Linux/macOS automation, shell scripting |
-
-| JSON/YAML | Configuration management |
-
-| Schedule | Task scheduling (Python) |
-
-| Logging | Centralized logging across all scripts |
-
-| Git | Version control and automation |
-
-
-
-\## 📁 Project Structure
-
-
-
+```text
 system-automation-scripts/
-
+│
 ├── python/
-
-│ ├── init.py # Python package marker
-
-│ ├── file\_organizer.py # File organization automation
-
-│ ├── backup\_automation.py # Backup management
-
-│ └── requirements.txt # Python dependencies
-
+│   ├── __init__.py
+│   ├── file_organizer.py          # File organization automation
+│   ├── system_cleaner.py          # Temporary files cleanup
+│   ├── backup_automation.py       # Backup management
+│   └── requirements.txt           # Python dependencies
+│
 ├── powershell/
-
-│ ├── system\_cleanup.ps1 # Disk cleanup utility
-
-│ ├── network\_monitor.ps1 # Network monitoring
-
-│ └── README.md # PowerShell specific docs
-
+│   ├── backup_script.ps1          # Compressed backups
+│   ├── system_cleanup.ps1         # Windows cleanup tasks
+│   ├── network_monitor.ps1        # Network monitoring
+│   └── README.md                  # PowerShell-specific documentation
+│
 ├── bash/
-
-│ ├── git\_automation.sh # Git operations automation
-
-│ ├── log\_rotator.sh # Log rotation utility
-
-│ └── README.md # Bash specific docs
-
+│   ├── git_automation.sh          # Git workflow automation
+│   ├── log_rotator.sh             # Log rotation
+│   ├── resource_monitor.sh        # System resource monitoring
+│   └── README.md                  # Bash-specific documentation
+│
 ├── config/
-
-│ ├── settings.json # Global configuration
-
-│ └── backup\_config.json # Backup-specific config
-
+│   ├── settings.json              # Global configuration
+│   └── backup_config.json         # Backup-specific settings
+│
 ├── tests/
-
-│ ├── test\_python.py # Python unit tests
-
-│ └── test\_powershell.ps1 # PowerShell tests
-
+│   ├── test_python.py             # Python unit tests
+│   └── test_powershell.ps1        # PowerShell tests
+│
 ├── docs/
+│   ├── screenshots/
+│   │   ├── screenshot_1_file_organizer.png
+│   │   ├── screenshot_2_backup_script.png
+│   │   ├── screenshot_3_git_automation.png
+│   │   └── screenshot_4_vscode_structure.png
+│   └── examples/                  # Usage examples
+│
+├── .gitignore                     # Git ignore rules
+├── LICENSE                        # MIT License
+├── setup.ps1                      # Windows setup script
+└── README.md                      # Main documentation
+```
 
-│ ├── images/ # Screenshots and diagrams
+---
 
-│ └── examples/ # Usage examples
+## Quick Start
 
-├── .gitignore # Git ignore rules
+### Prerequisites
 
-├── LICENSE # MIT License
+Install the tools that apply to your environment:
 
-└── README.md # This file
+- **Python 3.8+**
+- **Git**
+- **PowerShell 5.1+** (Windows)
+- **Bash** (Linux, macOS, or WSL)
 
+### Clone the Repository
 
+```bash
+git clone https://github.com/YOUR_USERNAME/system-automation-scripts.git
+cd system-automation-scripts
+```
 
-\## 📸 Screenshots
+### Python Setup
 
+```bash
+pip install -r python/requirements.txt
+python python/file_organizer.py --help
+```
 
+### PowerShell Setup
 
-\### File Organizer in Action
+```powershell
+.\powershell\backup_script.ps1 -?
+```
 
-!\[File Organizer](docs/screenshots/screenshot\_1\_file\_organizer.png)
+### Bash Setup
 
+```bash
+chmod +x bash/git_automation.sh
+./bash/git_automation.sh
+```
 
+---
 
-\### Backup Script
+## Usage Examples
 
-!\[Backup Script](docs/screenshots/screenshot\_2\_backup\_script.png)
+### File Organizer
 
+Organize a downloads folder:
 
+```bash
+python python/file_organizer.py C:\Users\YourName\Downloads
+```
 
-\### Git Automation
+Organize files by date:
 
-!\[Git Automation](docs/screenshots/screenshot\_3\_git\_automation.png)
+```bash
+python python/file_organizer.py C:\TestFolder --by-date
+```
 
+### Backup Script
 
+Create a compressed backup with PowerShell:
 
-\### Project Structure
+```powershell
+.\powershell\backup_script.ps1 -SourcePath "C:\Important" -DestinationPath "D:\Backups" -Compress
+```
 
-!\[VSCode Structure](docs/screenshots/screenshot\_4\_vscode\_structure.png)
+### Git Automation
 
+Run the Bash Git automation script:
 
+```bash
+chmod +x bash/git_automation.sh
+./bash/git_automation.sh /path/to/repo
+```
 
-\## 🚀 Getting Started (Windows Instructions)
+### Quick Access Commands
 
+```text
+Python:
+python python/file_organizer.py --help
 
+PowerShell:
+.\powershell\backup_script.ps1 -?
 
-\### Prerequisites
+Bash:
+chmod +x bash/git_automation.sh && ./bash/git_automation.sh
+```
 
+---
 
+## Screenshots
 
-\- \*\*Python 3.8+\*\* (\[Download](https://www.python.org/downloads/))
+### File Organizer
 
-\- \*\*Git\*\* (\[Download](https://git-scm.com/download/win))
+![File Organizer](docs/screenshots/screenshot_1_file_organizer.png)
 
-\- \*\*PowerShell 5.1+\*\* (Built into Windows 10/11)
+### Backup Script
 
-\- \*\*Git Bash\*\* (\[Included with Git](https://git-scm.com/download/win)) - for bash scripts
+![Backup Script](docs/screenshots/screenshot_2_backupscript.png)
 
-\- \*\*VS Code\*\* (recommended) (\[Download](https://code.visualstudio.com/))
+### Git Automation
 
+![Git Automation](docs/screenshots/screenshot_3_git_automation.png)
 
+### Project Structure
 
-\### Installation \& Setup
+![Project Structure](docs/screenshots/screenshot_4_vscode_structure.png)
 
+---
 
+## Roadmap
 
-1\. \*\*Clone the repository\*\*
+Planned improvements:
 
-&#x20;  ```powershell
+- Add a simple menu-based interface for script selection
+- Expand notification support for backup and monitoring workflows
+- Add Docker support for isolated execution
+- Improve scheduling integrations with Task Scheduler and Cron
+- Expand automated testing coverage
+- Add CI support with GitHub Actions
 
-&#x20;  git clone https://github.com/dianadesiree/system-automation-scripts.git
+---
 
-&#x20;  cd system-automation-scripts
+## Contributing
 
+Contributions, suggestions, and improvements are welcome.
 
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push your branch
+5. Open a pull request
 
-2\. \*\*Clone the repository\*\*
+For major changes, consider opening an issue first to discuss the proposal.
 
-&#x20;  ```powershell
+---
 
-.\\setup.ps1
+## License
 
+This project is licensed under the **MIT License**.
+See the [LICENSE](LICENSE) file for details.
 
+---
 
-2\. \*\*Test Python scripts\*\*
+## Contact
 
-&#x20;  ```powershell
+**Diana Araujo**
 
-cd python
+- Email: `your-email@example.com`
+- LinkedIn: `https://linkedin.com/in/your-profile`
+- GitHub: `https://github.com/your-username`
+- Portfolio: `https://your-portfolio-link.com`
 
-python file\_organizer.py --help
+> Replace the placeholder links above with your real contact information before publishing.
 
+---
 
+## Notes
 
-Script Examples
-
-Python File Organizer
-
-
-
-\# Organize Downloads folder
-
-python python/file\_organizer.py C:\\Users\\YourName\\Downloads
-
-
-
-\# Organize by date within categories
-
-python python/file\_organizer.py C:\\TestFolder --by-date
-
-
-
-PowerShell Backup
-
-
-
-\# Create compressed backup
-
-.\\powershell\\backup\_script.ps1 -SourcePath "C:\\Important" -DestinationPath "D:\\Backups" -Compress
-
-
-
-Bash Git Automation
-
-
-
-\# Make script executable
-
-chmod +x bash/git\_automation.sh
-
-
-
-\# Run interactive git automation
-
-./bash/git\_automation.sh /path/to/repo
-
-
-
-📊 Sample Output
-
-File Organizer Results
-
-
-
-📁 Organizing files in: C:\\Users\\Downloads
-
-&#x20; ✅ Moved: image.jpg -> Images/
-
-&#x20; ✅ Moved: doc.pdf -> Documents/
-
-&#x20; ✅ Moved: script.py -> Code/
-
-
-
-✅ Organization complete!
-
-&#x20;  Files moved: 15
-
-&#x20;  Categories: 5
-
-&#x20;  Statistics saved to: organization\_stats.json
-
-
-
-Backup Script Output
-
-
-
-==================================================
-
-&#x20; SYSTEM BACKUP SCRIPT
-
-==================================================
-
-\[2024-01-15 14:30:45] \[INFO] Starting backup process...
-
-\[2024-01-15 14:30:46] \[SUCCESS] Backup created: backup\_20240115\_143045.zip (125.3 MB)
-
-\[2024-01-15 14:30:46] \[INFO] Backup rotation complete. Current backups: 5
-
-
-
-🔧 Future Improvements
-
-Add GUI interface for script selection
-
-
-
-Implement email notifications for backup status
-
-
-
-Create Docker containers for isolated execution
-
-
-
-Add scheduling integration (Task Scheduler/Cron)
-
-
-
-Develop REST API for remote execution
-
-
-
-Add comprehensive test suite
-
-
-
-🤝 Contributing
-
-This is a personal learning project, but suggestions are welcome!
-
-
-
-Issues: Report bugs or suggest features
-
-
-
-Forks: Experiment and create pull requests
-
-
-
-Ideas: Share improvements via email
-
-
-
-📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-
-
-📬 Contact
-
-Diana Araujo
-
-
-
-📧 Email: dianadaraujo78@gmail.com
-
-
-
-🔗 LinkedIn: linkedin.com/in/dianadaraujo
-
-
-
-🌐 Portfolio: dianadesiree3.wixsite.com/my-site
-
-
-
-🐙 GitHub: github.com/dianadesiree
-
-
-
-Note: These scripts are designed for educational purposes and personal automation. Test in a safe environment before using in production.
-
+- This repository is ideal as a **portfolio project**, **learning project**, or **starter automation toolkit**.
+- Keep screenshots optimized and scripts documented for the best GitHub presentation.
+- If Mermaid does not render in a local Markdown viewer, GitHub web view should still display it correctly.
