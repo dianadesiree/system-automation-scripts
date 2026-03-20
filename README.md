@@ -1,78 +1,47 @@
-\# System Automation Scripts 🚀
+# System Automation Scripts
 
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue)
+![Bash](https://img.shields.io/badge/Bash-4.0%2B-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-black)
 
+## 📊 Overview
 
-!\[Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+This toolkit provides ready-to-use automation solutions for everyday system administration tasks. Whether you need to organize your downloads folder, automate backups, or manage git operations, these scripts have you covered. Built with best practices in error handling, logging, and configuration management.
 
-!\[PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue)
+**Why this project?** Automation is a critical skill in modern IT operations. This collection demonstrates:
+- ✅ Cross-platform scripting expertise (Windows/Linux/macOS)
+- ✅ Real-world automation scenarios
+- ✅ Enterprise-grade error handling and logging
+- ✅ Configuration-driven design
+- ✅ Testable and maintainable code structure
 
-!\[Bash](https://img.shields.io/badge/Bash-5.0%2B-orange)
+## ✨ Key Features
 
-!\[License](https://img.shields.io/badge/License-MIT-green)
+### 🐍 Python Scripts
+| Script | Description |
+|--------|-------------|
+| **File Organizer** | Automatically sorts files into folders by type, date, or custom rules |
+| **Backup Automation** | Incremental backups with compression support |
+| **System Cleaner** | Removes temporary files and optimizes disk space |
 
+### ⚡ PowerShell Scripts
+| Script | Description |
+|--------|-------------|
+| **Backup Script** | Creates compressed backups with rotation policy |
+| **System Cleanup** | Remove temporary files, clear caches, and free disk space |
+| **Network Monitor** | Continuous network connectivity testing with alerts |
 
+### 🔧 Bash Scripts
+| Script | Description |
+|--------|-------------|
+| **Git Automation** | Interactive git operations across repositories |
+| **Log Rotator** | Smart log rotation with compression and retention |
+| **Resource Monitor** | CPU, memory, and disk usage tracking |
 
-A comprehensive collection of cross-platform automation scripts designed to streamline system maintenance, file organization, backup operations, and network monitoring. This project demonstrates practical automation skills essential for DevOps engineers, system administrators, and developers.
+## 🏗️ Architecture
 
-
-
-\## 📊 Overview
-
-
-
-This toolkit provides ready-to-use automation solutions for everyday system administration tasks. Whether you need to organize your downloads folder, automate backups, monitor network connectivity, or clean up temporary files, these scripts have you covered. Built with best practices in error handling, logging, and configuration management.
-
-
-
-\*\*Why this project?\*\* Automation is a critical skill in modern IT operations. This collection demonstrates:
-
-\- Cross-platform scripting expertise (Windows/Linux/macOS)
-
-\- Real-world automation scenarios
-
-\- Enterprise-grade error handling and logging
-
-\- Configuration-driven design
-
-\- Testable and maintainable code structure
-
-
-
-\## ✨ Key Features
-
-
-
-\### Python Scripts 🐍
-
-\- \*\*File Organizer\*\*: Automatically sorts files into folders by type, date, or custom rules
-
-\- \*\*Backup Automation\*\*: Incremental backups with compression and cloud upload support
-
-\- \*\*Log Analyzer\*\*: Parse and analyze system logs with pattern detection
-
-
-
-\### PowerShell Scripts 💻
-
-\- \*\*System Cleanup\*\*: Remove temporary files, clear caches, and free disk space
-
-\- \*\*Network Monitor\*\*: Continuous network connectivity testing with alerts
-
-\- \*\*Service Manager\*\*: Start/stop/restart Windows services with dependency checking
-
-
-
-\### Bash Scripts 🐧
-
-\- \*\*Git Automation\*\*: Batch git operations across multiple repositories
-
-\- \*\*Log Rotator\*\*: Smart log rotation with compression and retention policies
-
-\- \*\*Resource Monitor\*\*: CPU, memory, and disk usage tracking with alerts
-
-
-
-\## 🏗️ Architecture
 
 ┌─────────────────────────────────────────────────────────────┐
 
