@@ -25,6 +25,7 @@ A cross-platform automation toolkit that combines **Python**, **PowerShell**, an
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
+- [Notes](#notes)
 
 ---
 
@@ -168,7 +169,10 @@ system-automation-scripts/
 │   │   ├── screenshot_1_file_organizer.png
 │   │   ├── screenshot_2_backup_script.png
 │   │   ├── screenshot_3_git_automation.png
-│   │   └── screenshot_4_vscode_structure.png
+│   │   ├── screenshot_4_vscode_structure.png
+│   │   ├── screenshot_5_organized_folders.png
+│   │   ├── screenshot_6_json_stats.png
+│   │   └── screenshot_7_backup_log.png
 │   └── examples/                  # Usage examples
 │
 ├── .gitignore                     # Git ignore rules
@@ -269,21 +273,19 @@ chmod +x bash/git_automation.sh && ./bash/git_automation.sh
 
 ## Screenshots
 
-### File Organizer
+To keep the main README concise, screenshots are linked below instead of displayed inline.
 
-![File Organizer](docs/screenshots/screenshot_1_file_organizer.png)
+| Preview | Description |
+|--------|-------------|
+| [File Organizer](docs/screenshots/screenshot_1_file_organizer.png) | Example of the file organization script in action |
+| [Backup Script](docs/screenshots/screenshot_2_backup_script.png) | PowerShell backup execution output |
+| [Git Automation](docs/screenshots/screenshot_3_git_automation.png) | Interactive Git automation workflow |
+| [Project Structure](docs/screenshots/screenshot_4_vscode_structure.png) | Repository layout shown in VS Code / GitHub |
+| [Organized Folders Result](docs/screenshots/screenshot_5_organized_folders.png) | Resulting categorized folders after organization |
+| [JSON Statistics Output](docs/screenshots/screenshot_6_json_stats.png) | Generated JSON summary with file statistics |
+| [Backup Log Output](docs/screenshots/screenshot_7_backup_log.png) | Backup logging and rotation output |
 
-### Backup Script
-
-![Backup Script](./docs/screenshots/backupscript.png)
-
-### Git Automation
-
-![Git Automation](docs/screenshots/screenshot_3_git_automation.png)
-
-### Project Structure
-
-![Project Structure](docs/screenshots/screenshot_4_vscode_structure.png)
+You can also browse the full screenshot folder here: [docs/screenshots](docs/screenshots/).
 
 ---
 
