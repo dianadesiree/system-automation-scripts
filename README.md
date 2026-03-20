@@ -42,52 +42,55 @@ This toolkit provides ready-to-use automation solutions for everyday system admi
 
 ## 🏗️ Architecture
 
-═══════════════════════════════════════════════════════════════════════════
-                         SYSTEM AUTOMATION SCRIPTS
-═══════════════════════════════════════════════════════════════════════════
-
-                    ┌─────────────────────────────────────┐
-                    │         USER INTERFACE LAYER        │
-                    ├─────────────────────────────────────┤
-                    │  CLI Commands │  Config Files       │
-                    │  PowerShell  │  Environment Vars    │
-                    └───────────────┬─────────────────────┘
-                                    │
-        ┌───────────────────────────┼───────────────────────────┐
-        │                           │                           │
-        ▼                           ▼                           ▼
-┌───────────────┐          ┌───────────────┐          ┌───────────────┐
-│   PYTHON      │          │  POWERSHELL   │          │     BASH      │
-│   SCRIPTS     │          │   SCRIPTS     │          │   SCRIPTS     │
-├───────────────┤          ├───────────────┤          ├───────────────┤
-│ file_org.py   │          │ backup.ps1    │          │ git_auto.sh   │
-│ system_clean  │◄────────►│ network.ps1   │◄────────►│ log_rotate.sh │
-│ log_analyzer  │          │ cleanup.ps1   │          │ resource.sh   │
-│ backup_auto   │          │ service.ps1   │          │ monitor.sh    │
-└───────┬───────┘          └───────┬───────┘          └───────┬───────┘
-        │                          │                          │
-        └──────────────────────────┼──────────────────────────┘
-                                   │
-                    ┌──────────────▼──────────────┐
-                    │      SHARED COMPONENTS       │
-                    ├──────────────────────────────┤
-                    │  📋 Configuration (JSON)     │
-                    │  📝 Logging System           │
-                    │  ⚠️ Error Handling           │
-                    │  📧 Notifications            │
-                    │  🔄 Task Scheduling          │
-                    └──────────────┬───────────────┘
-                                   │
-                    ┌──────────────▼──────────────┐
-                    │      OPERATING SYSTEMS       │
-                    ├──────────────────────────────┤
-                    │  🪟 Windows 10/11            │
-                    │  🐧 Linux (Ubuntu/CentOS)    │
-                    │  🍎 macOS                     │
-                    │  🔄 WSL (Windows Subsystem)   │
-                    └──────────────────────────────┘
-
-═══════════════════════════════════════════════════════════════════════════
++---------------------------------------------------------------------------+
+| SYSTEM AUTOMATION SCRIPTS |
++---------------------------------------------------------------------------+
+| |
+| +------------------------------+ |
+| | USER INTERFACE LAYER | |
+| +------------------------------+ |
+| | CLI Commands | Config Files | |
+| | PowerShell | Environment | |
+| +--------------+---------------+ |
+| | |
+| +------------------+------------------+ |
+| | | | |
+| v v v |
+| +-------------+ +-------------+ +-------------+ |
+| | PYTHON | | POWERSHELL | | BASH | |
+| | SCRIPTS | | SCRIPTS | | SCRIPTS | |
+| +-------------+ +-------------+ +-------------+ |
+| | file_org.py | | backup.ps1 | | git_auto.sh | |
+| | system_clean| | network.ps1 | | log_rotate.sh| |
+| | log_analyzer| | cleanup.ps1 | | resource.sh | |
+| | backup_auto | | service.ps1 | | monitor.sh | |
+| +------+------+ +------+------+ +------+------+ |
+| | | | |
+| +------------------+------------------+ |
+| | |
+| +-------v-------+ |
+| | SHARED | |
+| | COMPONENTS | |
+| +---------------+ |
+| | Configuration | |
+| | (JSON) | |
+| | Logging System| |
+| | Error Handling| |
+| | Notifications | |
+| | Scheduling | |
+| +-------+-------+ |
+| | |
+| +-------v-------+ |
+| | OPERATING | |
+| | SYSTEMS | |
+| +---------------+ |
+| | Windows 10/11 | |
+| | Linux | |
+| | macOS | |
+| | WSL | |
+| +---------------+ |
+| |
++---------------------------------------------------------------------------+
 
 
 
@@ -118,52 +121,52 @@ This toolkit provides ready-to-use automation solutions for everyday system admi
 \## 📁 Project Structure
 
 
-┌── system-automation-scripts/
-│   │
-│   ├── 📂 python/
-│   │   ├── 📄 __init__.py
-│   │   ├── 📄 file_organizer.py          # File organization automation
-│   │   ├── 📄 system_cleaner.py          # Temp files cleanup
-│   │   ├── 📄 backup_automation.py       # Backup management
-│   │   └── 📄 requirements.txt            # Python dependencies
-│   │
-│   ├── 📂 powershell/
-│   │   ├── 📄 backup_script.ps1           # Compressed backups
-│   │   ├── 📄 system_cleanup.ps1          # Windows cleanup
-│   │   ├── 📄 network_monitor.ps1         # Network testing
-│   │   └── 📄 README.md                    # PowerShell docs
-│   │
-│   ├── 📂 bash/
-│   │   ├── 📄 git_automation.sh           # Git operations
-│   │   ├── 📄 log_rotator.sh              # Log rotation
-│   │   ├── 📄 resource_monitor.sh         # System resources
-│   │   └── 📄 README.md                    # Bash docs
-│   │
-│   ├── 📂 config/
-│   │   ├── 📄 settings.json                # Global config
-│   │   └── 📄 backup_config.json           # Backup settings
-│   │
-│   ├── 📂 tests/
-│   │   ├── 📄 test_python.py               # Python unit tests
-│   │   └── 📄 test_powershell.ps1          # PowerShell tests
-│   │
-│   ├── 📂 docs/
-│   │   ├── 📂 screenshots/
-│   │   │   ├── 🖼️ screenshot_1_file_organizer.png
-│   │   │   ├── 🖼️ screenshot_2_backup_script.png
-│   │   │   ├── 🖼️ screenshot_3_git_automation.png
-│   │   │   └── 🖼️ screenshot_4_vscode_structure.png
-│   │   └── 📂 examples/                     # Usage examples
-│   │
-│   ├── 📄 .gitignore                        # Git ignore rules
-│   ├── 📄 LICENSE                           # MIT License
-│   ├── 📄 setup.ps1                         # Windows setup script
-│   └── 📄 README.md                          # Main documentation
+system-automation-scripts/
 │
-└── ⚡ Quick Access:
-    ├── 🐍 Python:  python python/file_organizer.py --help
-    ├── ⚡ PowerShell: .\powershell\backup_script.ps1 -?
-    └── 🔧 Bash:     chmod +x bash/git_automation.sh && ./bash/git_automation.sh
+├── python/
+│ ├── init.py
+│ ├── file_organizer.py # File organization automation
+│ ├── system_cleaner.py # Temp files cleanup
+│ ├── backup_automation.py # Backup management
+│ └── requirements.txt # Python dependencies
+│
+├── powershell/
+│ ├── backup_script.ps1 # Compressed backups
+│ ├── system_cleanup.ps1 # Windows cleanup
+│ ├── network_monitor.ps1 # Network testing
+│ └── README.md # PowerShell docs
+│
+├── bash/
+│ ├── git_automation.sh # Git operations
+│ ├── log_rotator.sh # Log rotation
+│ ├── resource_monitor.sh # System resources
+│ └── README.md # Bash docs
+│
+├── config/
+│ ├── settings.json # Global config
+│ └── backup_config.json # Backup settings
+│
+├── tests/
+│ ├── test_python.py # Python unit tests
+│ └── test_powershell.ps1 # PowerShell tests
+│
+├── docs/
+│ ├── screenshots/
+│ │ ├── screenshot_1_file_organizer.png
+│ │ ├── screenshot_2_backup_script.png
+│ │ ├── screenshot_3_git_automation.png
+│ │ └── screenshot_4_vscode_structure.png
+│ └── examples/ # Usage examples
+│
+├── .gitignore # Git ignore rules
+├── LICENSE # MIT License
+├── setup.ps1 # Windows setup script
+└── README.md # Main documentation
+
+Quick Access:
+Python: python python/file_organizer.py --help
+PowerShell: .\powershell\backup_script.ps1 -?
+Bash: chmod +x bash/git_automation.sh && ./bash/git_automation.sh
 
 
 
