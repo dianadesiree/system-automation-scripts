@@ -3,20 +3,20 @@
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-5391FE)
 ![Bash](https://img.shields.io/badge/Bash-4.0%2B-4EAA25)
-![Windows Installer](https://img.shields.io/badge/Installer-Inno%20Setup-orange)
+![Installer](https://img.shields.io/badge/Installer-Inno%20Setup-orange)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
+![License](https://img.shields.io/badge/License-Custom-red)
 
 A cross-platform automation toolkit built with **Python**, **PowerShell**, and **Bash** to automate practical system administration tasks such as file organization, backups, cleanup, log rotation, resource monitoring, and Git workflow support.
 
-This repository now includes a **Windows interactive organizer application**, a **packaged installer**, and a **metadata watermark system** for improved usability, traceability, and professional presentation.
+This repository also includes a **Windows interactive organizer application**, a **packaged installer**, a **portable distribution**, and a **metadata watermark system** for improved usability, traceability, and professional presentation.
 
 ---
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [What’s New](#whats-new)
-- [Why This Project](#why-this-project)
+- [Highlights](#highlights)
 - [Core Features](#core-features)
 - [Architecture](#architecture)
 - [Technologies Used](#technologies-used)
@@ -34,44 +34,33 @@ This repository now includes a **Windows interactive organizer application**, a 
 
 ## Overview
 
-**System Automation Scripts** is a practical automation toolkit designed to reduce repetitive manual work across Windows, Linux, macOS, and WSL environments.
+**System Automation Scripts** is a portfolio-ready automation project designed to reduce repetitive manual work across **Windows, Linux, macOS, and WSL** environments.
 
-It provides scripts and tools for:
+It includes tools for:
 
 - Organizing files automatically by category
 - Optionally organizing files by modification date
 - Creating and managing compressed backups
 - Cleaning temporary and unnecessary files
 - Monitoring system and network activity
-- Rotating logs and maintaining repositories
-- Supporting both technical users and non-technical users through CLI and interactive workflows
+- Rotating logs and supporting Git workflows
+- Providing both **command-line** and **interactive Windows** workflows
 
-The project is structured as a portfolio-ready repository with modular code, reusable scripts, screenshots, documentation, and a packaged Windows installer.
-
----
-
-## What’s New
-
-The project now includes the following improvements:
-
-- **Interactive Windows organizer application** (`python/organizer_app.py`) that asks the user which folder to organize and whether to organize files by date
-- **Installable Windows package** built with **Inno Setup** for easier installation and distribution
-- **Watermark metadata system** that creates a `.file_organizer_metadata.txt` file in organized folders to identify the software, author, timestamp, computer, and user
-- **Enhanced statistics output** saved in `organization_stats.json` with creator metadata, timestamp, and organization results
-- **Improved professional documentation** for portfolio and recruiter review
+The project is structured to demonstrate practical scripting, packaging, installer creation, documentation, and end-user usability.
 
 ---
 
-## Why This Project
+## Highlights
 
-This project demonstrates:
+This version includes several improvements that make the project stronger for portfolio and recruiter review:
 
-- Cross-platform scripting across **Windows, Linux, macOS, and WSL**
-- Real-world automation use cases for administration and productivity
-- A combination of **command-line tools** and a **guided interactive application**
-- Better usability through installer-based distribution for Windows users
-- Practical software packaging and deployment experience
-- Stronger documentation and portfolio presentation for GitHub
+- **Interactive Windows organizer application** for users who prefer guided prompts over manual CLI arguments
+- **Optional date-based organization** during file sorting
+- **Metadata watermark files** generated inside organized folders for traceability
+- **Enhanced JSON statistics output** with creator metadata and execution results
+- **Windows installer package** built with **Inno Setup**
+- **Portable ZIP distribution** for easier testing and sharing
+- **Professional documentation and screenshot-based proof of functionality**
 
 ---
 
@@ -81,18 +70,18 @@ This project demonstrates:
 
 | Component | Description |
 |-----------|-------------|
-| `file_organizer.py` | Command-line file organizer for category-based and date-based organization |
-| `organizer_app.py` | Interactive Windows application that prompts for target folder and date-based organization |
+| `file_organizer.py` | Command-line file organizer for category-based and optional date-based organization |
+| `organizer_app.py` | Interactive Windows organizer application that prompts for a folder path and organization preferences |
 | Metadata watermark | Creates `.file_organizer_metadata.txt` in organized folders for traceability |
-| `organization_stats.json` | Saves post-run statistics and metadata about the organization process |
+| `organization_stats.json` | Saves execution statistics and metadata after each organization run |
 
 ### PowerShell Scripts
 
 | Script | Description |
 |--------|-------------|
-| `backup_script.ps1` | Creates compressed backups with configurable destinations and retention behavior |
+| `backup_script.ps1` | Creates compressed backups with configurable source, destination, and retention support |
 | `system_cleanup.ps1` | Cleans temporary files and supports Windows maintenance workflows |
-| `network_monitor.ps1` | Monitors connectivity and supports network diagnostics |
+| `network_monitor.ps1` | Monitors connectivity and supports basic network diagnostics |
 
 ### Bash Scripts
 
@@ -100,15 +89,15 @@ This project demonstrates:
 |--------|-------------|
 | `git_automation.sh` | Simplifies repetitive Git operations |
 | `log_rotator.sh` | Rotates logs with retention-friendly behavior |
-| `resource_monitor.sh` | Tracks system resource usage such as CPU, memory, and disk |
+| `resource_monitor.sh` | Tracks CPU, memory, and disk usage |
 
-### Distribution and Packaging
+### Packaging and Distribution
 
 | Package | Description |
 |---------|-------------|
 | `FileOrganizer_Setup.exe` | Windows installer package for easier deployment |
-| `FileOrganizer_v1.0.zip` | Portable packaged distribution |
-| Inno Setup script | Installer definition for packaging the application |
+| `FileOrganizer_v1.0.zip` | Portable packaged version |
+| `installer.iss` | Inno Setup script used to build the installer |
 
 ---
 
@@ -135,7 +124,7 @@ flowchart TD
     D --> F
     E --> F
 
-    H[Distribution Layer<br/>FileOrganizer_Setup.exe<br/>Portable ZIP Package<br/>Inno Setup Packaging]
+    H[Distribution Layer<br/>Windows Installer<br/>Portable ZIP Package<br/>Inno Setup Packaging]
     C --> H
 
     G[Operating Systems<br/>Windows 10/11<br/>Linux<br/>macOS<br/>WSL]
@@ -149,9 +138,9 @@ flowchart TD
 | Technology | Purpose |
 |------------|---------|
 | Python 3.8+ | Core automation logic and interactive application support |
-| PowerShell 5.1+ | Windows administration and task automation |
+| PowerShell 5.1+ | Windows administration and maintenance automation |
 | Bash 4.0+ | Linux/macOS shell automation |
-| JSON | Statistics and configuration data |
+| JSON | Configuration, statistics, and metadata storage |
 | Inno Setup | Windows installer creation |
 | Git | Version control and workflow automation |
 | Logging / Metadata Files | Traceability and execution records |
@@ -164,7 +153,6 @@ flowchart TD
 system-automation-scripts/
 │
 ├── python/
-│   ├── __init__.py
 │   ├── file_organizer.py                 # CLI file organization tool
 │   ├── organizer_app.py                  # Interactive Windows organizer app
 │   └── requirements.txt                  # Python dependencies
@@ -213,7 +201,7 @@ system-automation-scripts/
 │   └── test_powershell.ps1               # PowerShell tests
 │
 ├── .gitignore                            # Git ignore rules
-├── LICENSE                               # License file
+├── LICENSE                               # Custom license
 ├── setup.ps1                             # Windows setup script
 └── README.md                             # Main documentation
 ```
@@ -231,15 +219,15 @@ python python/organizer_app.py
 
 ### Option 2: Use the Windows Installer
 
-For Windows users, the project also includes a packaged installer:
+For Windows users, the project includes a packaged installer:
 
 - `distribution/windows/FileOrganizer_Setup.exe`
 
-This installer was created with **Inno Setup** and is intended to make the application easier to install and distribute.
+This installer was created with **Inno Setup** to simplify installation and distribution.
 
 ### Option 3: Use the Portable ZIP Package
 
-For a portable version, see:
+For a portable version, use:
 
 - `distribution/windows/FileOrganizer_v1.0.zip`
 
@@ -254,7 +242,7 @@ python python/file_organizer.py C:\Users\YourName\Downloads
 python python/file_organizer.py C:\Users\YourName\Downloads --by-date
 ```
 
-### Interactive Application
+### Interactive Organizer App
 
 ```bash
 python python/organizer_app.py
@@ -263,7 +251,7 @@ python python/organizer_app.py
 The interactive app will:
 
 1. Ask which folder you want to organize
-2. Ask whether you want to organize by date
+2. Ask whether you want to organize files by date
 3. Confirm the selected settings
 4. Organize the folder contents
 5. Save statistics to `organization_stats.json`
@@ -286,9 +274,9 @@ chmod +x bash/git_automation.sh
 
 ## Usage Examples
 
-### Example: Interactive Windows Organizer
+### Interactive Organizer Workflow
 
-The interactive application is especially useful for users who do not want to type command-line arguments manually.
+The interactive application is useful for users who do not want to type command-line arguments manually.
 
 Typical workflow:
 
@@ -296,9 +284,10 @@ Typical workflow:
 - Enter a target folder path
 - Choose whether to group files by date
 - Confirm the action
-- Review the summary and generated metadata/statistics files
+- Review the summary
+- Inspect generated metadata and JSON statistics files
 
-### Example: Metadata Watermark
+### Metadata Watermark Example
 
 After organization, destination folders may include a metadata file named:
 
@@ -306,16 +295,16 @@ After organization, destination folders may include a metadata file named:
 .file_organizer_metadata.txt
 ```
 
-This file can store:
+This file may contain:
 
-- Software name and version
-- Author information
-- Website and contact email
-- Timestamp of organization
-- Computer name and user name
-- Copyright notice
+- software name and version
+- author information
+- website and contact email
+- timestamp of organization
+- computer name and user name
+- copyright notice
 
-### Example: JSON Statistics Output
+### JSON Statistics Example
 
 The organizer also saves an `organization_stats.json` file containing:
 
@@ -337,13 +326,13 @@ To keep the main README concise, screenshots are linked below instead of embedde
 | [Backup Script](docs/screenshots/screenshot_2_backup_script.png) | PowerShell backup execution |
 | [Git Automation](docs/screenshots/screenshot_3_git_automation.png) | Bash Git automation workflow |
 | [Project Structure](docs/screenshots/screenshot_4_vscode_structure.png) | Repository layout overview |
-| [Organized Folders](docs/screenshots/screenshot_5_organized_folders.png) | Resulting categorized folders after organization |
+| [Organized Folders](docs/screenshots/screenshot_5_organized_folders.png) | Categorized folder results after organization |
 | [JSON Statistics](docs/screenshots/screenshot_6_json_stats.png) | Saved `organization_stats.json` output |
 | [Backup Log](docs/screenshots/screenshot_7_backup_log.png) | Backup log output example |
-| [Interactive App Prompt](docs/screenshots/screenshot_8_interactive_app_prompt.png) | Interactive app asking for target folder |
+| [Interactive App Prompt](docs/screenshots/screenshot_8_interactive_app_prompt.png) | Interactive app asking for the target folder |
 | [Interactive App Summary](docs/screenshots/screenshot_9_interactive_app_summary.png) | Interactive app completion summary |
 | [Metadata Watermark](docs/screenshots/screenshot_10_metadata_watermark.png) | Metadata watermark file generated in organized folders |
-| [Windows Installer](docs/screenshots/screenshot_11_windows_installer.png) | Installer package visible for Windows distribution |
+| [Windows Installer](docs/screenshots/screenshot_11_windows_installer.png) | Windows installer package for distribution |
 
 You can also browse the full screenshot folder here:
 
@@ -358,9 +347,9 @@ Planned improvements:
 - Add drag-and-drop support for the interactive organizer
 - Expand notification support for backup and monitoring workflows
 - Add CI workflows for automated testing and packaging
-- Improve release packaging and GitHub Releases distribution
+- Improve release packaging through GitHub Releases
 - Expand test coverage for the interactive application
-- Add optional GUI packaging for broader end-user adoption
+- Explore an optional GUI version for broader end-user adoption
 
 ---
 
@@ -380,11 +369,9 @@ For major changes, consider opening an issue first to discuss the proposal.
 
 ## License
 
-This repository includes a custom license file in `LICENSE`.
+This project uses the custom license included in the `LICENSE` file.
 
-> Important: if you intend to keep commercial-use restrictions or additional author-control restrictions, do not label the project as standard MIT in the README or badge. Standard MIT does not include those extra restrictions.
-
-Update this section so that the license badge and the actual license text match.
+Please review the license terms before redistribution, modification, or commercial use.
 
 ---
 
@@ -394,15 +381,11 @@ Update this section so that the license badge and the actual license text match.
 
 - Email: `dianadaraujo78@gmail.com`
 - GitHub: `https://github.com/dianadesiree`
-- LinkedIn: `https://linkedin.com/in/your-profile`
-- Portfolio: `https://your-portfolio-link.com`
-
-> Replace the placeholder LinkedIn and portfolio links before publishing.
 
 ---
 
 ## Notes
 
-- This project combines automation scripting, packaging, installer creation, and documentation into a portfolio-ready repository.
-- For the most professional presentation, consider keeping packaged binaries inside `distribution/windows/` instead of the repository root.
-- For distribution to end users, GitHub Releases is a better long-term home for `.exe` installers than the main source tree.
+- This project combines automation scripting, packaging, installer creation, and documentation in a portfolio-ready repository.
+- Keeping packaged binaries inside `distribution/windows/` helps maintain a cleaner source tree.
+- For long-term end-user distribution, **GitHub Releases** is usually a better location for `.exe` installers than the main source tree.
