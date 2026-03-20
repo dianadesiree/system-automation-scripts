@@ -283,7 +283,7 @@ To keep the main README concise, screenshots are linked below instead of display
 | [Project Structure](docs/screenshots/screenshot_4_vscode_structure.png) | Repository layout shown in VS Code / GitHub |
 | [Organized Folders Result](docs/screenshots/screenshot_5_organized_folders.png) | Resulting categorized folders after organization |
 | [JSON Statistics Output](docs/screenshots/screenshot_6_json_stats.png) | Generated JSON summary with file statistics |
-| [Backup Log Output](docs/screenshots/screenshot_7_backup_log.png) | Backup logging and rotation output |
+| [Backup Log Output](docs/screenshots/Untitledscreenshot_7_backup_log.png) | Backup logging and rotation output |
 
 You can also browse the full screenshot folder here: [docs/screenshots](docs/screenshots/).
 
