@@ -42,133 +42,105 @@ This toolkit provides ready-to-use automation solutions for everyday system admi
 
 ## 🏗️ Architecture
 
-+---------------------------------------------------------------------------+
-| SYSTEM AUTOMATION SCRIPTS |
-+---------------------------------------------------------------------------+
-| |
-| +------------------------------+ |
-| | USER INTERFACE LAYER | |
-| +------------------------------+ |
-| | CLI Commands | Config Files | |
-| | PowerShell | Environment | |
-| +--------------+---------------+ |
-| | |
-| +------------------+------------------+ |
-| | | | |
-| v v v |
-| +-------------+ +-------------+ +-------------+ |
-| | PYTHON | | POWERSHELL | | BASH | |
-| | SCRIPTS | | SCRIPTS | | SCRIPTS | |
-| +-------------+ +-------------+ +-------------+ |
-| | file_org.py | | backup.ps1 | | git_auto.sh | |
-| | system_clean| | network.ps1 | | log_rotate.sh| |
-| | log_analyzer| | cleanup.ps1 | | resource.sh | |
-| | backup_auto | | service.ps1 | | monitor.sh | |
-| +------+------+ +------+------+ +------+------+ |
-| | | | |
-| +------------------+------------------+ |
-| | |
-| +-------v-------+ |
-| | SHARED | |
-| | COMPONENTS | |
-| +---------------+ |
-| | Configuration | |
-| | (JSON) | |
-| | Logging System| |
-| | Error Handling| |
-| | Notifications | |
-| | Scheduling | |
-| +-------+-------+ |
-| | |
-| +-------v-------+ |
-| | OPERATING | |
-| | SYSTEMS | |
-| +---------------+ |
-| | Windows 10/11 | |
-| | Linux | |
-| | macOS | |
-| | WSL | |
-| +---------------+ |
-| |
-+---------------------------------------------------------------------------+
+```mermaid
+flowchart TB
+    A["SYSTEM AUTOMATION SCRIPTS"]
 
+    U["USER INTERFACE LAYER<br/>CLI Commands | Config Files<br/>PowerShell | Environment Vars"]
 
+    P["PYTHON SCRIPTS<br/>file_organizer.py<br/>system_cleaner.py<br/>backup_automation.py"]
+    PS["POWERSHELL SCRIPTS<br/>backup_script.ps1<br/>system_cleanup.ps1<br/>network_monitor.ps1"]
+    B["BASH SCRIPTS<br/>git_automation.sh<br/>log_rotator.sh<br/>resource_monitor.sh"]
 
-\## 🛠️ Technologies Used
+    S["SHARED COMPONENTS<br/>📄 Configuration (JSON)<br/>📝 Logging System<br/>⚠️ Error Handling<br/>🔔 Notifications<br/>🔄 Task Scheduling"]
 
+    O["OPERATING SYSTEMS<br/>🪟 Windows 10/11<br/>🐧 Linux (Ubuntu/CentOS)<br/>🍎 macOS<br/>🧩 WSL (Windows Subsystem for Linux)"]
 
+    A --> U
+    U --> P
+    U --> PS
+    U --> B
+
+    P <--> PS
+    PS <--> B
+
+    P --> S
+    PS --> S
+    B --> S
+
+    S --> O
+```
+
+## 🛠️ Technologies Used
 
 | Technology | Purpose |
-
 |------------|---------|
-
-| Python 3.8+ | Core automation logic, cross-platform compatibility |
-
-| PowerShell | Windows-specific automation, system administration |
-
-| Bash | Linux/macOS automation, shell scripting |
-
+| Python 3.8+ | Core automation logic and cross-platform compatibility |
+| PowerShell | Windows-specific automation and system administration |
+| Bash | Linux/macOS automation and shell scripting |
 | JSON/YAML | Configuration management |
-
-| Schedule | Task scheduling (Python) |
-
+| Schedule | Task scheduling in Python |
 | Logging | Centralized logging across all scripts |
-
 | Git | Version control and automation |
 
+## 📁 Project Structure
 
-
-\## 📁 Project Structure
-
-
+```text
 system-automation-scripts/
 │
-├── python/
-│ ├── init.py
-│ ├── file_organizer.py # File organization automation
-│ ├── system_cleaner.py # Temp files cleanup
-│ ├── backup_automation.py # Backup management
-│ └── requirements.txt # Python dependencies
+├── 📁 python/
+│   ├── 📄 __init__.py
+│   ├── 📄 file_organizer.py        # File organization automation
+│   ├── 📄 system_cleaner.py        # Temporary files cleanup
+│   ├── 📄 backup_automation.py     # Backup management
+│   └── 📄 requirements.txt         # Python dependencies
 │
-├── powershell/
-│ ├── backup_script.ps1 # Compressed backups
-│ ├── system_cleanup.ps1 # Windows cleanup
-│ ├── network_monitor.ps1 # Network testing
-│ └── README.md # PowerShell docs
+├── 📁 powershell/
+│   ├── 📄 backup_script.ps1        # Compressed backups
+│   ├── 📄 system_cleanup.ps1       # Windows cleanup
+│   ├── 📄 network_monitor.ps1      # Network testing
+│   └── 📄 README.md                # PowerShell docs
 │
-├── bash/
-│ ├── git_automation.sh # Git operations
-│ ├── log_rotator.sh # Log rotation
-│ ├── resource_monitor.sh # System resources
-│ └── README.md # Bash docs
+├── 📁 bash/
+│   ├── 📄 git_automation.sh        # Git operations
+│   ├── 📄 log_rotator.sh           # Log rotation
+│   ├── 📄 resource_monitor.sh      # System resources
+│   └── 📄 README.md                # Bash docs
 │
-├── config/
-│ ├── settings.json # Global config
-│ └── backup_config.json # Backup settings
+├── 📁 config/
+│   ├── 📄 settings.json            # Global configuration
+│   └── 📄 backup_config.json       # Backup settings
 │
-├── tests/
-│ ├── test_python.py # Python unit tests
-│ └── test_powershell.ps1 # PowerShell tests
+├── 📁 tests/
+│   ├── 📄 test_python.py           # Python unit tests
+│   └── 📄 test_powershell.ps1      # PowerShell tests
 │
-├── docs/
-│ ├── screenshots/
-│ │ ├── screenshot_1_file_organizer.png
-│ │ ├── screenshot_2_backup_script.png
-│ │ ├── screenshot_3_git_automation.png
-│ │ └── screenshot_4_vscode_structure.png
-│ └── examples/ # Usage examples
+├── 📁 docs/
+│   ├── 📁 screenshots/
+│   │   ├── 🖼️ screenshot_1_file_organizer.png
+│   │   ├── 🖼️ screenshot_2_backup_script.png
+│   │   ├── 🖼️ screenshot_3_git_automation.png
+│   │   └── 🖼️ screenshot_4_vscode_structure.png
+│   └── 📁 examples/                # Usage examples
 │
-├── .gitignore # Git ignore rules
-├── LICENSE # MIT License
-├── setup.ps1 # Windows setup script
-└── README.md # Main documentation
+├── 📄 .gitignore                   # Git ignore rules
+├── 📄 LICENSE                      # MIT License
+├── 📄 setup.ps1                    # Windows setup script
+└── 📄 README.md                    # Main documentation
+```
 
-Quick Access:
-Python: python python/file_organizer.py --help
-PowerShell: .\powershell\backup_script.ps1 -?
-Bash: chmod +x bash/git_automation.sh && ./bash/git_automation.sh
+## ⚡ Quick Access
 
+```bash
+# Python
+python python/file_organizer.py --help
 
+# PowerShell
+.\powershell\backup_script.ps1 -?
+
+# Bash
+chmod +x bash/git_automation.sh && ./bash/git_automation.sh
+```
 
 \## 📸 Screenshots
 
